@@ -24,7 +24,13 @@ countPrimeTValuesForN :: Integer -> Int
 countPrimeTValuesForN x = length [tValue | tValue <- generateTValuesForN x, isPrime tValue]
 
 -- Przykład użycia: policz ile liczb t(n) jest pierwszych dla n < x
+
 main :: IO ()
 main = do
-  let x = 9
+  putStrLn "Podaj liczbę x:"
+  input <- getLine
+  -- Konwertujemy wejście na liczbę całkowitą
+  let x = read input :: Integer
+
+
   print (countPrimeTValuesForN x)
