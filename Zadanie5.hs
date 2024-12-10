@@ -1,4 +1,4 @@
--- największy wspólny dzielnik
+-- największy wspólny dzielnik, algorytm Euklidesa
 greatestCommonDivisor :: Int -> Int -> Int
 greatestCommonDivisor a 0 = abs a
 greatestCommonDivisor a b = greatestCommonDivisor b (a `mod` b)
