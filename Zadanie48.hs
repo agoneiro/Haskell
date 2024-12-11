@@ -38,6 +38,7 @@ expectedVector n i = setAtIndex (updateVector (createVector (n `div` 2 + 1)) pro
         (abs (i - 1), 2/9) -- ruch pierwszej kostki w prawo lub drugiej w lewo
         ]
 
+-- funkcja pomocnicza do podstawiania jednego wektora do drugiego
 updateExpectedVector :: [Double] -> [Double] -> Double -> [Double]
 updateExpectedVector [] [] _ = []
 updateExpectedVector (v:vs) (p:ps) multiplier = 
@@ -67,7 +68,7 @@ normalizeExpectedRecursive n i s vec
         updatedVec = updateExpectedVector vec previous multiplier
 
 expectedTurns :: Int -> Double
-expectedTurns n = head (normalizeExpected n (n `div` 2) )
+expectedTurns n = head (normalizeExpected n (n `div` 2))
 
 -- main
 main :: IO ()
@@ -77,4 +78,3 @@ main = do
   let n = read input :: Int
   if even n && n > 2 then print (expectedTurns n)
   else error "Liczba graczy powinna być parzysta i większa od 2"
-
